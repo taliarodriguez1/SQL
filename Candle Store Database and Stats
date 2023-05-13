@@ -16,6 +16,12 @@ insert into candle_store values (13,"rainbow", "sweet candy", 50, 20);
 insert into candle_store values (14, "coral", "peaches", 100, 25);
 insert into candle_store values (15, "Periwinkle","cotton candy", 200, 30);
 
+--display the database by order of quantity
 select * from candle_store order by quantity;
-select * from candle_store order by price;  
-select * from candle_store where quantity >100;
+
+--display the database by order of price descending
+select * from candle_store order by price desc;  
+
+--display the databse where the quantity is higer or equal to 100
+select * from candle_store where quantity >=100;
+
