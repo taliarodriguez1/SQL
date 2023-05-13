@@ -1,0 +1,21 @@
+CREATE TABLE candle_store (id integer primary key, color text, scent text, quantity integer, price integer);
+
+insert into candle_store values (1,"white","vanilla",100,25);
+insert into candle_store values (2,"purple","lavender",100,30);
+insert into candle_store values (3,"pink","roses",100,20);
+insert into candle_Store values (4,"blue","ocean",100,25);
+insert into candle_store values (5,"green","forest",100,30);
+insert into candle_store values (6,"brown", "cinnamon", 150,25);
+insert into candle_store values (7,"yellow", "lemon", 150, 20);
+insert into candle_store values (8,"red","cherries", 150, 15);
+insert into candle_store values (9,"orange", "sorbet", 150, 15);
+insert into candle_store values (10,"black", "toasted marshmellow", 150, 30);
+insert into candle_store values (11,"grey", "mint", 50, 15);
+insert into candle_store values (12, "beige","fresh linen", 50, 15);
+insert into candle_store values (13,"rainbow", "sweet candy", 50, 20);
+insert into candle_store values (14, "coral", "peaches", 100, 25);
+insert into candle_store values (15, "Periwinkle","cotton candy", 200, 30);
+
+select * from candle_store order by quantity;
+select * from candle_store order by price;  
+select * from candle_store where quantity >100;
