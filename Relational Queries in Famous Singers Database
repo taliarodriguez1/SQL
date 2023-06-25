@@ -1,0 +1,48 @@
+/* Create table about singers, their birthyear, poplular song, and genre they sing */
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY, name TEXT, birth_year INTEGER, song TEXT, music_style INTEGER);
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Bob Marley","1945","Buffalo Soldier","2");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Ariana Grande","1993","Dangerous Woman","1");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Ella Fitzgerald","1917","Cheek to Cheek","3");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Tim McGraw","1967","The Cowboy in Me","4");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Drake","1986","Passionfruit","5");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Zedd","1989","Clarity","6");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Josh Kiszka","1996","Heat Above","7");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Beethoven","1770","Symphony No.5","8");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Donna Summers","1948","Hot Stuff","9");
+INSERT INTO singers (name,birth_year,song,music_style) 
+VALUES ("Andrea Bocelli","1958","Fall On Me","10");
+
+CREATE TABLE music (id INTEGER PRIMARY KEY,genre TEXT);
+
+INSERT INTO music VALUES (1,"Pop");
+INSERT INTO music VALUES(2,"Reggae");
+INSERT INTO music VALUES(3,"Jazz");
+INSERT INTO music VALUES(4,"Country");
+INSERT INTO music VALUES(5,"Rap");
+INSERT INTO music VALUES(6,"Electronic");
+INSERT INTO music VALUES(7,"Rock");
+INSERT INTO music VALUES(8,"Classical");
+INSERT INTO music VALUES(9,"Disco");
+INSERT INTO music VALUES(10,"Opera");
+
+/*Show singers and their music genre*/
+Select singers.name,music.genre
+FROM singers
+JOIN music
+ON singers.music_style=music.id GROUP BY music_style; 
+
+/*Show singers, name of their popular song, and the genre*/
+SELECT singers.name,singers.song,singers.music_style,music.genre
+FROM singers
+LEFT OUTER JOIN music
+ON singers.music_style=music.id; 
