@@ -1,0 +1,51 @@
+/*Show Customers (their full names, customer ID, and country) who are not in the US.*/
+select FirstName,LastName,customerID,country
+from chinook.customers
+where country <> "USA";
+
+/*Show only the Customers from Brazil.*/
+select * from chinook.customers
+where country="Brazil"
+
+/*Find the Invoices of customers who are from Brazil. Show the customer's full name, Invoice ID, Date of the invoice, and billing country*/
+select cust.FirstName, cust.LastName, inv.invoiceID, inv.invoiceDate, inv.BillingCountry
+from chinook.customers as cust
+left join chinook.invoices as inv
+on cust.CustomerID= inv.CustomerID
+where inv.billingcountry= "Brazil"
+
+/*Show the Employees who are Sales Agents.*/
+select * from chinook.employees
+where Title= "Sales Support Agent"
+
+/*Find a unique/distinct list of billing countries from the Invoice table.*/
+select distinct billingcountry from chinook.invoices
+
+/*Provide a query that shows the invoices associated with each sales agent.Include the Sales Agent's full name.*/
+select emp.Firstname, emp.LastName, inv.invoiceID
+from chinook.employees as emp
+join chinook.customers as cust  
+on cust.SupportRepID = emp.employeeID
+join chinook.invoices as inv
+on inv.CustomerID= cust.CustomerID
+ 
+/*Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.*/
+select inv.total, cust.FirstName, cust.LastName, cust.Country, emp.FirstName, emp.LastName
+from chinook.invoices as inv
+join chinook.customers as cust on cust.CustomerID=inv.CustomerID
+join chinook.employees as emp on emp.EmployeeID=cust.SupportRepID
+
+/*How many Invoices were there in 2009?*/
+select * from chinook.invoices
+where InvoiceDate between '2009-01-01' and '2009-12-31'
+
+/*What are the total sales for 2009?*/
+select sum(total)
+from chinook.invoices
+where InvoiceDate between '2009-01-01' and '2009-12-31'
+
+/*Write a query that includes the purchased track name with each invoice line ID.*/
+SELECT tra.Name, ii.InvoiceLineId
+FROM chinook.Invoice_items as ii
+JOIN chinook.Tracks tra 
+ON ii.TrackId = tra.TrackId;
